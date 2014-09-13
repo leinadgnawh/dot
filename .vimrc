@@ -9,6 +9,7 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'wincent/command-t'
 
 call vundle#end()
 filetype plugin indent on

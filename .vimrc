@@ -10,7 +10,10 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'wincent/command-t'
+Plugin 'a.vim'
+Plugin 'The-NERD-Commenter'
 
 call vundle#end()
 filetype plugin indent on
+filetype plugin on
 

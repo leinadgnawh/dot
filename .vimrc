@@ -15,5 +15,7 @@ call vundle#end()
 filetype plugin indent on
 
 set number
+set dir=~/.vim/swap//,/var/tmp//,/tmp//,.
+
 syntax on
 

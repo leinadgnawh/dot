@@ -10,6 +10,7 @@ Plugin 'wincent/command-t'
 Plugin 'a.vim'
 Plugin 'The-NERD-Commenter'
 Plugin 'wting/rust.vim'
+Plugin 'pangloss/vim-javascript'
 
 call vundle#end()
 filetype plugin indent on

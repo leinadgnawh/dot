@@ -20,3 +20,5 @@ set dir=~/.vim/swap//,/var/tmp//,/tmp//,.
 
 syntax on
 
+cmap w!! w !sudo tee > /dev/null %
+

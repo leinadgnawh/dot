@@ -12,6 +12,7 @@ Plugin 'The-NERD-Commenter'
 Plugin 'wting/rust.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'fatih/vim-go'
+Plugin 'rking/ag.vim'
 
 call vundle#end()
 filetype plugin indent on

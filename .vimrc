@@ -13,6 +13,7 @@ Plugin 'wting/rust.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'fatih/vim-go'
 Plugin 'rking/ag.vim'
+Plugin 'tpope/vim-dispatch'
 
 call vundle#end()
 filetype plugin indent on

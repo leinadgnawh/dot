@@ -19,8 +19,9 @@ lpasscp() {
 alias lpasscp=lpasscp
 
 bso() {
-	local username="dhwang@us.ibm.com"
-	local password=$(lpass show --password "w3.ibm.com")
+	local ibm="w3.ibm.com"
+	local username=$(lpass show --username $ibm)
+	local password=$(lpass show --password $ibm)
 	eval $HOME/.ibm/bso.exp "$1" $username $(printf '%q' $password)
 }
 alias bso=bso

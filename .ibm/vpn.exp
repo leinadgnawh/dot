@@ -1,0 +1,18 @@
+#!/usr/bin/expect
+
+set timeout 10
+
+set host [lindex $argv 0]
+set username [lindex $argv 1]
+set password [subst -nocommands -novariables [lindex $argv 2]]
+
+spawn /opt/cisco/anyconnect/bin/vpn -s connect "$host"
+
+expect "Username:"
+send "$username\r"
+
+expect "Password:"
+send -- "$password\r"
+
+sleep 5
+

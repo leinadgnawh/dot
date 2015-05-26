@@ -14,5 +14,5 @@ send "$username\r"
 expect "Password:"
 send -- "$password\r"
 
-sleep 5
+interact
 

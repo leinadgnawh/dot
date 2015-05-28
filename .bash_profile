@@ -11,7 +11,8 @@ export GOPATH=$HOME/code/go
 
 export NVM_DIR=$HOME/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-[ -d "$(brew --prefix nvm)" ] && . "$(brew --prefix nvm)/nvm.sh"
+command -v brew >/dev/null 2>&1 &&\
+	[ -d "$(brew --prefix nvm)" ] && . "$(brew --prefix nvm)/nvm.sh"
 
 lpasscp() {
 	lpass show --clip --password "$1"

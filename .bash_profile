@@ -45,3 +45,5 @@ alias vpn=vpn
 
 alias vpnq="/opt/cisco/anyconnect/bin/vpn -s disconnect"
 
+alias winterfell="out=$(mktemp -t bran) && bran build | tee $out; grep '1mBuild' $out"
+

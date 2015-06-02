@@ -46,7 +46,17 @@ alias vpn=vpn
 alias vpnq="/opt/cisco/anyconnect/bin/vpn -s disconnect"
 
 winterfell() {
-	local out=$(mktemp -t bran)
+	local out=""
+	if [[ -f /etc/lsb-release ]]; then
+		if grep -q -i "Ubuntu" /etc/lsb-release; then
+			if env | grep -q ^TMPDIR=; then
+				export TMPDIR=/tmp
+			fi
+			out=$(mktemp --tmpdir bran.XXXX)
+		fi
+	else
+		out=$(mktemp -t bran)
+	fi
 	bran build | tee $out; \
 		grep -m $(($(bran workers | wc -l)-2)) "1mBuild" $out
 }

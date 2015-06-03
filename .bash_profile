@@ -58,7 +58,7 @@ winterfell() {
 		out=$(mktemp -t bran)
 	fi
 	bran build | tee $out; \
-		grep -m $(($(bran workers | wc -l)-2)) "1mBuild" $out
+		grep --color=none -m $(($(bran workers | wc -l)-2)) "1mBuild" $out
 }
 alias winterfell=winterfell
 

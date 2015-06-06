@@ -5,7 +5,7 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 
 export HISTCONTROL=ignorespace
 
-export P4CONFIG=~/.p4config
+export P4CONFIG=$HOME/.p4config
 
 export GOPATH=$HOME/code/go
 

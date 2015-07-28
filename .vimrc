@@ -19,6 +19,7 @@ call vundle#end()
 filetype plugin indent on
 
 set number
+set colorcolumn=80
 set dir=~/.vim/swap//,/var/tmp//,/tmp//,.
 
 syntax on

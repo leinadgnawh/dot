@@ -19,7 +19,10 @@ call vundle#end()
 filetype plugin indent on
 
 set number
-set colorcolumn=80
+
+set colorcolumn=81
+autocmd BufWinEnter * match Error /\%>80v.\+\|\s\+$\|^\s*\n\+\%$/
+
 set dir=~/.vim/swap//,/var/tmp//,/tmp//,.
 
 syntax on

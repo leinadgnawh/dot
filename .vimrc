@@ -14,6 +14,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'fatih/vim-go'
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-dispatch'
+Plugin 'bling/vim-airline'
 
 call vundle#end()
 filetype plugin indent on
@@ -31,3 +32,7 @@ syntax on
 
 cmap w!! w !sudo tee > /dev/null %
 
+let g:airline#extensions#tabline#enabled=1
+let g:airline_theme='papercolor'
+set noshowmode
+set laststatus=2

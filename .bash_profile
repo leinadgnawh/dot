@@ -5,6 +5,15 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 
 export HISTCONTROL=ignorespace
 
+OS=$(([[ -f /etc/lsb-release ]] && grep -q -i "Ubuntu" /etc/lsb-release) \
+	&& echo "ubuntu" || echo "os x")
+
+if [[ "$OS" == "ubuntu" ]]; then
+	export EDITOR="vim"
+elif [[ "$OS" == "os x" ]]; then
+	export EDITOR="mvim"
+fi
+
 export P4CONFIG=$HOME/.p4config
 
 export GOPATH=$HOME/code/go
@@ -47,14 +56,12 @@ alias vpnq="/opt/cisco/anyconnect/bin/vpn -s disconnect"
 
 winterfell() {
 	local out=""
-	if [[ -f /etc/lsb-release ]]; then
-		if grep -q -i "Ubuntu" /etc/lsb-release; then
-			if env | grep -q ^TMPDIR=; then
-				export TMPDIR=/tmp
-			fi
-			out=$(mktemp --tmpdir bran.XXXX)
+	if [[ "$OS" == "ubuntu" ]]; then
+		if env | grep -q ^TMPDIR=; then
+			export TMPDIR=/tmp
 		fi
-	else
+		out=$(mktemp --tmpdir bran.XXXX)
+	elif [[ "$OS" == "os x" ]]; then
 		out=$(mktemp -t bran)
 	fi
 	bran build | tee $out; \

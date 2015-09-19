@@ -31,8 +31,11 @@ local function size_window(d)
 end
 
 mash = {"cmd", "ctrl"}
+
 hotkey.bind(mash, 'H', function() push_window('left') end)
 hotkey.bind(mash, 'J', function() size_window('min') end)
 hotkey.bind(mash, 'K', function() size_window('max') end)
 hotkey.bind(mash, 'L', function() push_window('right') end)
 
+hotkey.bind(mash, 'N', grid.pushwindow_nextscreen)
+hotkey.bind(mash, 'P', grid.pushwindow_nextscreen)

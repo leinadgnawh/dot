@@ -17,6 +17,7 @@ fi
 export P4CONFIG=$HOME/.p4config
 
 export GOPATH=$HOME/code/go
+export PATH=$PATH:$GOPATH/bin
 
 export NVM_DIR=$HOME/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"

@@ -11,7 +11,7 @@ OS=$(([[ -f /etc/lsb-release ]] && grep -q -i "Ubuntu" /etc/lsb-release) \
 if [[ "$OS" == "ubuntu" ]]; then
 	export EDITOR="vim"
 elif [[ "$OS" == "os x" ]]; then
-	export EDITOR="mvim"
+	export EDITOR="mvim -f"
 fi
 
 export GOPATH=$HOME/code/go

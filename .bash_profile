@@ -3,6 +3,10 @@ export PATH=/usr/local/bin:$PATH
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
+if [[ "$HOSTNAME" == "vader" ]]; then
+        export PS1="(｡▼皿▼): \W$ "
+fi
+
 export HISTCONTROL=ignorespace
 
 OS=$(([[ -f /etc/lsb-release ]] && grep -q -i "Ubuntu" /etc/lsb-release) \

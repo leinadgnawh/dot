@@ -26,6 +26,9 @@ export NVM_DIR=$HOME/.nvm
 command -v brew >/dev/null 2>&1 &&\
 	[ -d "$(brew --prefix nvm)" ] && . "$(brew --prefix nvm)/nvm.sh"
 
+command -v rbenv >/dev/null 2>&1 &&\
+        eval "$(rbenv init -)"
+
 lpasscp() {
 	lpass show --clip --password "$1"
 }

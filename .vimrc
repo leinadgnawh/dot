@@ -19,6 +19,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-dispatch'
 Plugin 'bling/vim-airline'
+Plugin 'suan/vim-instant-markdown'
 
 call vundle#end()
 filetype plugin indent on

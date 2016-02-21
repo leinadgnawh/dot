@@ -3,8 +3,19 @@ export PATH=/usr/local/bin:$PATH
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
+export CODE=$HOME/code
+if [[ -d $CODE/git/git ]]; then
+        . $CODE/git/git/contrib/completion/git-completion.bash
+        . $CODE/git/git/contrib/completion/git-prompt.sh
+
+        export GIT_PS1_SHOWDIRTYSTATE=true
+        export GIT_PS1_SHOWUNTRACKEDFILES=true
+        export GIT_PS1_SHOWCOLORHINTS=true
+        GIT_PS1="\e[0;31m\$(__git_ps1)"
+fi
+
 if [[ "$HOSTNAME" == "vader" ]]; then
-        export PS1="(｡▼皿▼): \W$ "
+        export PS1="(｡▼皿▼): \e[1m\W\e[m$GIT_PS1\e[m$ "
 fi
 
 export HISTCONTROL=ignorespace
@@ -18,7 +29,7 @@ elif [[ "$OS" == "os x" ]]; then
 	export EDITOR="mvim -f"
 fi
 
-export GOPATH=$HOME/code/go
+export GOPATH=$CODE/go
 export PATH=$PATH:$GOPATH/bin
 
 export NVM_DIR=$HOME/.nvm

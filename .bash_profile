@@ -15,7 +15,7 @@ if [[ -d $CODE/git/git ]]; then
 fi
 
 if [[ "$HOSTNAME" == "vader" ]]; then
-        export PS1="(｡▼皿▼): \e[1m\W\e[m$GIT_PS1\e[m$ "
+        export PS1="(｡▼皿▼): \[\e[1m\W\e[m$GIT_PS1\e[m\]\$ "
 fi
 
 export HISTCONTROL=ignorespace

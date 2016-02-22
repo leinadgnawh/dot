@@ -11,11 +11,11 @@ if [[ -d $CODE/git/git ]]; then
         export GIT_PS1_SHOWDIRTYSTATE=true
         export GIT_PS1_SHOWUNTRACKEDFILES=true
         export GIT_PS1_SHOWCOLORHINTS=true
-        GIT_PS1='\[\e[0;31m\]$(__git_ps1)\[\e[m\]'
+        GIT_PS1='\[\e[0;31m\]$(__git_ps1)\[\e[0m\]'
 fi
 
 if [[ "$HOSTNAME" == "vader" ]]; then
-        export PS1='(｡▼皿▼): \[\e[1m\]\W\[\e[m\]'$GIT_PS1'\$ '
+        export PS1='(｡▼皿▼): \[\e[1m\]\W\[\e[0m\]'$GIT_PS1'\$ '
 fi
 
 export HISTCONTROL=ignorespace

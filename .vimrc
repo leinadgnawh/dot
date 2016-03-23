@@ -19,6 +19,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-dispatch'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'suan/vim-instant-markdown'
 
 call vundle#end()
@@ -38,6 +39,8 @@ set expandtab
 syntax on
 
 cmap w!! w !sudo tee > /dev/null %
+
+let g:CommandTFileScanner='watchman'
 
 let g:airline#extensions#tabline#enabled=1
 let g:airline_theme='papercolor'

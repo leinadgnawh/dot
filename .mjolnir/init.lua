@@ -35,6 +35,26 @@ local function push_window(d)
   end
 end
 
+local function move_window(d)
+  if window.focusedwindow() ~= nil then
+    local y = 0
+    local w = grid.GRIDWIDTH/2
+    local h = grid.GRIDHEIGHT/2
+
+    if d == 'down' then
+      y = grid.GRIDHEIGHT/2
+    elseif d == 'up' then
+      y = 0
+    end
+
+    grid.adjust_focused_window(function(f)
+      f.y = y
+      f.w = w
+      f.h = h
+    end)
+  end
+end
+
 local function size_window(d)
   local win = window.focusedwindow()
   if win ~= nil then
@@ -58,3 +78,7 @@ mash = {"cmd", "ctrl", "shift"}
 
 hotkey.bind(mash, 'J', function() size_window('min') end)
 hotkey.bind(mash, 'K', function() size_window('max') end)
+
+mash = {"ctrl", "shift"}
+hotkey.bind(mash, 'J', function() move_window('down') end)
+hotkey.bind(mash, 'K', function() move_window('up') end)

@@ -26,10 +26,6 @@ export CODE=$HOME/code
 export GOPATH=$CODE/go
 export PATH=$PATH:$GOPATH/bin
 
-export NVM_DIR=$HOME/.nvm
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-[ -d "$(brew --prefix nvm)" ] && . "$(brew --prefix nvm)/nvm.sh"
-
 command -v nodenv >/dev/null 2>&1 && eval "$(nodenv init - --no-rehash bash)"
 
 command -v rbenv >/dev/null 2>&1 && eval "$(rbenv init - --no-rehash bash)"
@@ -38,7 +34,7 @@ if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
   source ~/.gnupg/.gpg-agent-info
   export GPG_AGENT_INFO
 else
-  eval "$(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)"
+  eval "$(gpg-agent --daemon)"
 fi
 
 lpasscp() {

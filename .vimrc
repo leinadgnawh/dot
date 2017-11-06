@@ -7,7 +7,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'wincent/command-t'
-Plugin 'a.vim'
+Plugin 'mileszs/ack.vim'
 Plugin 'The-NERD-Commenter'
 Plugin 'wting/rust.vim'
 Plugin 'pangloss/vim-javascript'
@@ -46,5 +46,7 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline_theme='papercolor'
 set noshowmode
 set laststatus=2
+
+let g:ackprg = 'ag --vimgrep'
 
 set clipboard=unnamed

@@ -26,8 +26,6 @@ export CODE=$HOME/code
 export GOPATH=$CODE/go
 export PATH=$PATH:$GOPATH/bin
 
-command -v nodenv >/dev/null 2>&1 && eval "$(nodenv init - --no-rehash bash)"
-
 command -v rbenv >/dev/null 2>&1 && eval "$(rbenv init - --no-rehash bash)"
 
 if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then

@@ -41,3 +41,5 @@ lpasscp() {
   lpass show --clip --password "$1"
 }
 alias lpasscp=lpasscp
+
+export GPG_TTY=$(tty)

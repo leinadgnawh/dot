@@ -22,7 +22,8 @@ fi
 
 export HISTCONTROL=ignorespace
 
-export EDITOR="mvim -f"
+export EDITOR="mvim -v"
+alias mvim="mvim -v"
 
 export CODE=$HOME/code
 
@@ -40,4 +41,3 @@ lpasscp() {
   lpass show --clip --password "$1"
 }
 alias lpasscp=lpasscp
-

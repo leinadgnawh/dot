@@ -14,8 +14,11 @@ if [ -d "$(brew --prefix git)" ]; then
   GIT_PS1='\[\e[0;31m\]$(__git_ps1)\[\e[0m\]'
 fi
 
-[[ "$HOSTNAME" == "vader" ]] &&\
+if [[ "$HOSTNAME" == "vader" ]]; then
   export PS1='(｡▼皿▼): \[\e[1m\]\W\[\e[0m\]'$GIT_PS1'\$ '
+elif [[ "$HOSTNAME" == "snoke" ]]; then
+  export PS1='●~*: \[\e[1m\]\W\[\e[0m\]'$GIT_PS1'\$ '
+fi
 
 export HISTCONTROL=ignorespace
 
@@ -28,16 +31,13 @@ export PATH=$PATH:$GOPATH/bin
 
 command -v rbenv >/dev/null 2>&1 && eval "$(rbenv init - --no-rehash bash)"
 
-if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
-  source ~/.gnupg/.gpg-agent-info
-  export GPG_AGENT_INFO
-else
+if [ -z "$(pgrep gpg-agent)" ]; then
   eval "$(gpg-agent --daemon)"
 fi
+export GPG_TTY=$(tty)
 
 lpasscp() {
   lpass show --clip --password "$1"
 }
 alias lpasscp=lpasscp
 
-export GPG_TTY=$(tty)

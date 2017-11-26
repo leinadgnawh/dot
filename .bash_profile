@@ -14,6 +14,10 @@ if [ -d "$(brew --prefix git)" ]; then
   GIT_PS1='\[\e[0;31m\]$(__git_ps1)\[\e[0m\]'
 fi
 
+if [ -d "$(brew --prefix hub)" ]; then
+  . $(brew --prefix hub)/etc/bash_completion.d/hub.bash_completion.sh
+fi
+
 if [[ "$HOSTNAME" == "vader" ]]; then
   export PS1='(｡▼皿▼): \[\e[1m\]\W\[\e[0m\]'$GIT_PS1'\$ '
 elif [[ "$HOSTNAME" == "snoke" ]]; then

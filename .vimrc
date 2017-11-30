@@ -21,6 +21,9 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'suan/vim-instant-markdown'
+Plugin 'eiginn/netrw'
+Plugin 'kana/vim-textobj-user'
+Plugin 'jceb/vim-textobj-uri'
 
 call vundle#end()
 filetype plugin indent on
@@ -48,5 +51,8 @@ set noshowmode
 set laststatus=2
 
 let g:ackprg = 'ag --vimgrep'
+
+let g:netrw_http_cmd  = 'open'
+nnoremap gx :normal mxviugx<Esc>`x
 
 set clipboard=unnamed

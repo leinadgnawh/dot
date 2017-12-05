@@ -1,6 +1,7 @@
 local hotkey = require "hs.hotkey"
 local grid = require "hs.grid"
 local window = require "hs.window"
+local screen = require "hs.screen"
 
 grid.GRIDWIDTH = 2
 grid.GRIDHEIGHT = 2
@@ -68,6 +69,12 @@ local function size_window(d)
   end
 end
 
+local function next_screen()
+  local win = window.focusedWindow()
+  local ns = screen.mainScreen():next()
+  win:moveToScreen(ns)
+end
+
 mash = {"cmd", "ctrl"}
 
 hotkey.bind(mash, 'H', function() push_window('left') end)
@@ -75,10 +82,8 @@ hotkey.bind(mash, 'J', function() push_window('down') end)
 hotkey.bind(mash, 'K', function() push_window('up') end)
 hotkey.bind(mash, 'L', function() push_window('right') end)
 
---[[
-hotkey.bind(mash, 'N', grid.pushwindow_nextscreen)
-hotkey.bind(mash, 'P', grid.pushwindow_nextscreen)
---]]
+hotkey.bind(mash, 'N', function() next_screen() end)
+hotkey.bind(mash, 'P', function() next_screen() end)
 
 mash = {"cmd", "ctrl", "shift"}
 

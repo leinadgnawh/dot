@@ -71,8 +71,7 @@ end
 
 local function next_screen()
   local win = window.focusedWindow()
-  local ns = screen.mainScreen():next()
-  win:moveToScreen(ns)
+  win:moveToScreen(win:screen():next())
 end
 
 mash = {"cmd", "ctrl"}

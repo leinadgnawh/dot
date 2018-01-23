@@ -45,3 +45,5 @@ lpasscp() {
   lpass show --clip --password "$1"
 }
 alias lpasscp=lpasscp
+
+alias lockscreen='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'

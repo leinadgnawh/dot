@@ -39,20 +39,27 @@ local function push_window(d)
   end
 end
 
-local function move_window(d)
+local function move_window(dy,dx)
   local win = window.focusedWindow()
   if win ~= nil then
     local y = 0
     local w = grid.GRIDWIDTH/2
     local h = grid.GRIDHEIGHT/2
 
-    if d == 'down' then
+    if dy == 'down' then
       y = grid.GRIDHEIGHT/2
     elseif d == 'up' then
       y = 0
     end
 
+    if dx == 'left' then
+      x = 0
+    elseif dx == 'right' then
+      x = grid.GRIDWIDTH/2
+    end
+
     grid.adjustWindow(function(f)
+      f.x = x
       f.y = y
       f.w = w
       f.h = h
@@ -76,19 +83,18 @@ end
 
 mash = {"cmd", "ctrl"}
 
-hotkey.bind(mash, 'H', function() push_window('left') end)
-hotkey.bind(mash, 'J', function() push_window('down') end)
-hotkey.bind(mash, 'K', function() push_window('up') end)
+hotkey.bind(mash, 'J', function() push_window('left') end)
+hotkey.bind(mash, 'K', function() push_window('down') end)
+hotkey.bind(mash, 'I', function() push_window('up') end)
 hotkey.bind(mash, 'L', function() push_window('right') end)
 
 hotkey.bind(mash, 'N', function() next_screen() end)
 hotkey.bind(mash, 'P', function() next_screen() end)
 
-mash = {"cmd", "ctrl", "shift"}
+hotkey.bind(mash, 'M', function() size_window('min') end)
+hotkey.bind(mash, 'O', function() size_window('max') end)
 
-hotkey.bind(mash, 'J', function() size_window('min') end)
-hotkey.bind(mash, 'K', function() size_window('max') end)
-
-mash = {"ctrl", "shift"}
-hotkey.bind(mash, 'J', function() move_window('down') end)
-hotkey.bind(mash, 'K', function() move_window('up') end)
+hotkey.bind(mash, 'U', function() move_window('up', 'left') end)
+hotkey.bind(mash, 'O', function() move_window('up', 'right') end)
+hotkey.bind(mash, 'H', function() move_window('down', 'left') end)
+hotkey.bind(mash, ';', function() move_window('down', 'right') end)
